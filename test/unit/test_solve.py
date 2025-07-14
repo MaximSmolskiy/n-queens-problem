@@ -3,7 +3,7 @@ import pytest
 
 from os import path
 import sys
-sys.path.append(path.abspath(path.join('..', '..', 'src')))
+sys.path.append(path.abspath(path.join(__file__, '..', '..', '..', 'src')))
 from solve import solve
 
 
