@@ -20,11 +20,11 @@ def solve(n):
 
     ones = np.ones((n, n))
     for diag in range(n):
-        A.append(np.diag(ones.diagonal(diag), diag).ravel())
-        A.append(np.diag(ones.diagonal(-diag), -diag).ravel())
+        A.append(np.diag(v=ones.diagonal(diag), k=diag).ravel())
+        A.append(np.diag(v=ones.diagonal(-diag), k=-diag).ravel())
 
-        A.append(np.fliplr(np.diag(ones.diagonal(diag), diag)).ravel())
-        A.append(np.fliplr(np.diag(ones.diagonal(-diag), -diag)).ravel())
+        A.append(np.fliplr(np.diag(v=ones.diagonal(diag), k=diag)).ravel())
+        A.append(np.fliplr(np.diag(v=ones.diagonal(-diag), k=-diag)).ravel())
 
     constraints = opt.LinearConstraint(A=A, ub=1)
 
