@@ -11,6 +11,10 @@ from solve import solve
 def test_solve(n):
     board = solve(n)
 
+    assert isinstance(board, np.ndarray)
+    assert board.shape == (n, n)
+    assert board.dtype == bool
+
     if n in [2, 3]:
         assert board.sum() == n - 1
     else:
