@@ -12,19 +12,19 @@ def test_solve(n):
     board = solve(n)
 
     if n in [2, 3]:
-        assert np.sum(board) == n - 1
+        assert board.sum() == n - 1
     else:
-        assert np.sum(board) == n
+        assert board.sum() == n
 
     for row in range(n):
-        assert np.sum(board[row, :]) <= 1
+        assert board[row, :].sum() <= 1
 
     for col in range(n):
-        assert np.sum(board[:, col]) <= 1
+        assert board[:, col].sum() <= 1
 
     for diag in range(n):
-        assert np.sum(board.diagonal(diag)) <= 1
-        assert np.sum(board.diagonal(-diag)) <= 1
+        assert board.diagonal(diag).sum() <= 1
+        assert board.diagonal(-diag).sum() <= 1
 
-        assert np.sum(np.fliplr(board).diagonal(diag)) <= 1
-        assert np.sum(np.fliplr(board).diagonal(-diag)) <= 1
+        assert np.fliplr(board).diagonal(diag).sum() <= 1
+        assert np.fliplr(board).diagonal(-diag).sum() <= 1
