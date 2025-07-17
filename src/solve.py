@@ -29,4 +29,4 @@ def solve(n):
     constraints = opt.LinearConstraint(A=A, ub=1)
 
     res = opt.milp(c=c, integrality=integrality, bounds=bounds, constraints=constraints)
-    return res.x.reshape((n, n)) >= 1e-6
+    return res.x.round().astype(bool).reshape((n, n))
